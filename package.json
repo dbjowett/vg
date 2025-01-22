@@ -1,0 +1,17 @@
+{
+  "author": "Daniel Jowett",
+  "description": "Monorepo Video Games App",
+  "name": "vg",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"pnpm run start:backend\" \"pnpm run start:frontend\" \"pnpm run start:app\"",
+    "start:backend": "cd backend && go run cmd/api/main.go",
+    "start:frontend": "cd frontend && pnpm run dev",
+    "start:app": "cd app && pnpm start ios",
+    "install:all": "pnpm install && cd backend && go mod download"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
