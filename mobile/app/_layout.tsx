@@ -3,24 +3,23 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { X } from 'lucide-react-native';
 import { TouchableOpacity } from 'react-native';
 export { ErrorBoundary } from 'expo-router';
 
+export const unstable_settings = { initialRouteName: '(tabs)' };
 const queryClient = new QueryClient();
-
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme();
+
   // Lufga font?
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -43,36 +42,33 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RootLayoutNav loaded={loaded} />
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <StackScreens />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
 
-function RootLayoutNav({ loaded }: { loaded: boolean }) {
-  const colorScheme = useColorScheme();
-  // useEffect(() => {
-  //   if (loaded) {
-  //     router.push('/(modals)/login');
-  //   }
-  // }, [loaded]);
+const StackScreens = () => {
+  useEffect(() => {
+    router.push('/(modals)/login');
+  }, []);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="(modals)/login"
-          options={{
-            title: 'Login or Signup',
-            presentation: 'modal',
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => router.back()}>
-                {/* <Ionicons name="close-outline" size={24} color="black" /> */}
-              </TouchableOpacity>
-            ),
-          }}
-        />
-      </Stack>
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="(modals)/login"
+        options={{
+          title: 'Login or Signup',
+          presentation: 'modal',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <X size={24} color="black" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+    </Stack>
   );
-}
+};

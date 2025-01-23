@@ -1,4 +1,4 @@
 packages:
-  - 'frontend/*'
-  - 'mobile/*'
-  - 'shared/*'
+  - 'frontend'
+  - 'mobile'
+  - 'shared'
