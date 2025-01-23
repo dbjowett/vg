@@ -1,27 +1,66 @@
-import { StyleSheet } from 'react-native';
+import { FlatList, Image, ListRenderItem, StyleSheet, TouchableOpacity } from 'react-native';
 
+import { useExploreGames } from '@/api';
+import { Game } from '@/api/types/game';
 import { Text, View } from '@/components/Themed';
-import { useQuery } from '@tanstack/react-query';
-// import { useExploreGames } from '@vg/shared/src';
+import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
+import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
 
-const getRepoData = async () => {
-  const response = await fetch('https://api.github.com/repos/TanStack/query');
-  return await response.json();
-};
+const IGDB_URL = 'https://images.igdb.com/igdb/image/upload/t_thumb/co27j9.jpg';
 
 export default function TabOneScreen() {
-  const { isPending, data } = useQuery({ queryKey: ['repoData'], queryFn: getRepoData });
-  // const games = useExploreGames();
+  const { data: games, isError, isPending } = useExploreGames();
+  console.log(games, isError);
 
   if (isPending) return <Text>Loading...</Text>;
+  if (isError) return <Text>Error...</Text>;
 
+  const renderRow: ListRenderItem<Game> = ({ item }) => {
+    return (
+      <Link href={`/games/${item.id}`} asChild>
+        <TouchableOpacity>
+          <Animated.View style={styles.listing} entering={FadeInRight} exiting={FadeOutLeft}>
+            <Image source={{ uri: `https:${item.cover.url}` }} style={styles.image} />
+            <TouchableOpacity style={{ position: 'absolute', right: 30, top: 30 }}>
+              <Ionicons name="heart-outline" size={24} color={'#000'} />
+            </TouchableOpacity>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              <View>
+                <Text style={{ fontWeight: 600 }}>{item.name}</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 4,
+                  alignSelf: 'baseline',
+                }}
+              >
+                <Ionicons name="star" />
+                <Text style={{ fontWeight: 600 }}>
+                  {Math.ceil((item?.total_rating || 100) / 20)}
+                </Text>
+              </View>
+            </View>
+            <Text style={{ fontSize: 12 }}>{item?.releaseDate}</Text>
+            <View style={{ flexDirection: 'row', gap: 4 }}>
+              <Text style={{ fontSize: 12, fontWeight: 600 }}>${item?.releaseDate}</Text>
+              <Text style={{ fontSize: 12 }}>night</Text>
+            </View>
+          </Animated.View>
+        </TouchableOpacity>
+      </Link>
+    );
+  };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>👀 {data.subscribers_count}</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text style={styles.title}>✨ {data.stargazers_count}</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Text style={styles.title}>🍴 {data.forks_count}</Text>
+      <FlatList data={games} renderItem={renderRow} />
     </View>
   );
 }
@@ -40,5 +79,17 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  listing: {
+    flex: 1,
+    padding: 16,
+    width: '100%',
+    gap: 4,
+    marginVertical: 8,
+  },
+  image: {
+    height: 300,
+    width: 300,
+    borderRadius: 10,
   },
 });
