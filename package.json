@@ -5,10 +5,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"pnpm run start:backend\" \"pnpm run start:frontend\" \"pnpm run start:app\"",
+    "start": "concurrently \"pnpm run start:backend\" \"pnpm run start:frontend\" \"pnpm run start:mobile\"",
     "start:backend": "cd backend && go run cmd/api/main.go",
     "start:frontend": "cd frontend && pnpm run dev",
-    "start:app": "cd app && pnpm start ios",
+    "start:mobile": "cd mobile && pnpm start ios",
     "install:all": "pnpm install && cd backend && go mod download"
   },
   "devDependencies": {
