@@ -15,5 +15,5 @@ export interface Game {
   total_rating: number;
   releaseDate: string;
   genres: Genre[];
-  first_release_date: string;
+  first_release_date: number;
 }

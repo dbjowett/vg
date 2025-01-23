@@ -3,11 +3,19 @@ import { FlatList, Image, ListRenderItem, StyleSheet, TouchableOpacity } from 'r
 import { useExploreGames } from '@/api';
 import { Game } from '@/api/types/game';
 import { Text, View } from '@/components/Themed';
-import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import { Heart } from 'lucide-react-native';
 import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
 
 const IGDB_URL = 'https://images.igdb.com/igdb/image/upload/t_thumb/co27j9.jpg';
+
+const getHumanDate = (time?: number): string | null => {
+  if (!time) return null;
+  const newDate = new Date();
+  newDate.setTime(time * 1000);
+  return new Intl.DateTimeFormat('en-CA').format(newDate);
+};
+// getHumanDate(item?.first_release_date);
 
 export default function TabOneScreen() {
   const { data: games, isError, isPending } = useExploreGames();
@@ -23,7 +31,7 @@ export default function TabOneScreen() {
           <Animated.View style={styles.listing} entering={FadeInRight} exiting={FadeOutLeft}>
             <Image source={{ uri: `https:${item.cover.url}` }} style={styles.image} />
             <TouchableOpacity style={{ position: 'absolute', right: 30, top: 30 }}>
-              <Ionicons name="heart-outline" size={24} color={'#000'} />
+              <Heart size={24} color={'#fff'} />
             </TouchableOpacity>
             <View
               style={{
@@ -42,17 +50,10 @@ export default function TabOneScreen() {
                   alignSelf: 'baseline',
                 }}
               >
-                <Ionicons name="star" />
-                <Text style={{ fontWeight: 600 }}>
-                  {Math.ceil((item?.total_rating || 100) / 20)}
-                </Text>
+                <Text style={{ fontWeight: 600 }}>{Math.trunc(item?.total_rating)}%</Text>
               </View>
             </View>
-            <Text style={{ fontSize: 12 }}>{item?.releaseDate}</Text>
-            <View style={{ flexDirection: 'row', gap: 4 }}>
-              <Text style={{ fontSize: 12, fontWeight: 600 }}>${item?.releaseDate}</Text>
-              <Text style={{ fontSize: 12 }}>night</Text>
-            </View>
+            <Text style={{ fontSize: 12 }}>{getHumanDate(item?.first_release_date)}</Text>
           </Animated.View>
         </TouchableOpacity>
       </Link>
@@ -67,6 +68,9 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    width: 'auto',
+    borderColor: '#fff',
+    borderWidth: 1,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -89,7 +93,6 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 300,
-    width: 300,
-    borderRadius: 10,
+    borderRadius: 8,
   },
 });

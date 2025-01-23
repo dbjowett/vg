@@ -13,7 +13,7 @@ var JSON = `[
 			"name": "Elden Ring",
 			"cover": {
 					"id": 212094,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co4jni.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg"
 			},
 			"genres": [
 					{
@@ -33,7 +33,7 @@ var JSON = `[
 			"name": "Suikoden II",
 			"cover": {
 					"id": 90946,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1y6a.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1y6a.jpg"
 			},
 			"genres": [
 					{
@@ -53,7 +53,7 @@ var JSON = `[
 			"name": "Baldur's Gate 3",
 			"cover": {
 					"id": 289025,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co670h.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg"
 			},
 			"genres": [
 					{
@@ -85,7 +85,7 @@ var JSON = `[
 			"name": "The Legend of Zelda: Breath of the Wild",
 			"cover": {
 					"id": 172453,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co3p2d.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg"
 			},
 			"genres": [
 					{
@@ -109,7 +109,7 @@ var JSON = `[
 			"name": "The Legend of Zelda: Tears of the Kingdom",
 			"cover": {
 					"id": 274264,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co5vmg.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg"
 			},
 			"genres": [
 					{
@@ -129,7 +129,7 @@ var JSON = `[
 			"name": "God of War",
 			"cover": {
 					"id": 85062,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1tmu.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg"
 			},
 			"genres": [
 					{
@@ -153,7 +153,7 @@ var JSON = `[
 			"name": "Red Dead Redemption 2",
 			"cover": {
 					"id": 80403,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1q1f.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.jpg"
 			},
 			"genres": [
 					{
@@ -177,7 +177,7 @@ var JSON = `[
 			"name": "Mass Effect 2",
 			"cover": {
 					"id": 93684,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co20ac.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co20ac.jpg"
 			},
 			"genres": [
 					{
@@ -201,7 +201,7 @@ var JSON = `[
 			"name": "God of War Ragnarök",
 			"cover": {
 					"id": 269779,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co5s5v.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.jpg"
 			},
 			"genres": [
 					{
@@ -225,7 +225,7 @@ var JSON = `[
 			"name": "Persona 5",
 			"cover": {
 					"id": 81906,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1r76.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1r76.jpg"
 			},
 			"genres": [
 					{
@@ -249,7 +249,7 @@ var JSON = `[
 			"name": "Super Mario Odyssey",
 			"cover": {
 					"id": 76371,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1mxf.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1mxf.jpg"
 			},
 			"genres": [
 					{
@@ -269,7 +269,7 @@ var JSON = `[
 			"name": "The Last of Us Part II",
 			"cover": {
 					"id": 279320,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co5ziw.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg"
 			},
 			"genres": [
 					{
@@ -289,7 +289,7 @@ var JSON = `[
 			"name": "The Witcher 3: Wild Hunt",
 			"cover": {
 					"id": 89386,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1wyy.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
 			},
 			"genres": [
 					{
@@ -309,7 +309,7 @@ var JSON = `[
 			"name": "Hades",
 			"cover": {
 					"id": 152760,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co39vc.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co39vc.jpg"
 			},
 			"genres": [
 					{
@@ -337,7 +337,7 @@ var JSON = `[
 			"name": "Unreal Tournament",
 			"cover": {
 					"id": 119351,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co2k3b.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co2k3b.jpg"
 			},
 			"genres": [
 					{
@@ -353,7 +353,7 @@ var JSON = `[
 			"name": "Star Wars: Knights of the Old Republic",
 			"cover": {
 					"id": 85067,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1tmz.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1tmz.jpg"
 			},
 			"genres": [
 					{
@@ -373,7 +373,7 @@ var JSON = `[
 			"name": "Super Mario Bros. Wonder",
 			"cover": {
 					"id": 310593,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co6nnl.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co6nnl.jpg"
 			},
 			"genres": [
 					{
@@ -389,7 +389,7 @@ var JSON = `[
 			"name": "Uncharted 4: A Thief's End",
 			"cover": {
 					"id": 81917,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1r7h.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1r7h.jpg"
 			},
 			"genres": [
 					{
@@ -409,7 +409,7 @@ var JSON = `[
 			"name": "Portal 2",
 			"cover": {
 					"id": 82660,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co1rs4.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co1rs4.jpg"
 			},
 			"genres": [
 					{
@@ -437,7 +437,7 @@ var JSON = `[
 			"name": "Return of the Obra Dinn",
 			"cover": {
 					"id": 103077,
-					"url": "//images.igdb.com/igdb/image/upload/t_thumb/co27j9.jpg"
+					"url": "//images.igdb.com/igdb/image/upload/t_cover_big/co27j9.jpg"
 			},
 			"genres": [
 					{
