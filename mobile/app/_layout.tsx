@@ -7,9 +7,11 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
-import { Ionicons } from '@expo/vector-icons';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { TouchableOpacity } from 'react-native';
 export { ErrorBoundary } from 'expo-router';
+
+const queryClient = new QueryClient();
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
@@ -39,16 +41,20 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav loaded={loaded} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RootLayoutNav loaded={loaded} />
+    </QueryClientProvider>
+  );
 }
 
 function RootLayoutNav({ loaded }: { loaded: boolean }) {
   const colorScheme = useColorScheme();
-  useEffect(() => {
-    if (loaded) {
-      router.push('/(modals)/login');
-    }
-  }, [loaded]);
+  // useEffect(() => {
+  //   if (loaded) {
+  //     router.push('/(modals)/login');
+  //   }
+  // }, [loaded]);
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -61,7 +67,7 @@ function RootLayoutNav({ loaded }: { loaded: boolean }) {
             presentation: 'modal',
             headerLeft: () => (
               <TouchableOpacity onPress={() => router.back()}>
-                <Ionicons name="close-outline" size={24} color="black" />
+                {/* <Ionicons name="close-outline" size={24} color="black" /> */}
               </TouchableOpacity>
             ),
           }}

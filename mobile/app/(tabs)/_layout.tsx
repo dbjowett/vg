@@ -2,9 +2,8 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { useColorScheme } from '@/components/useColorScheme';
-import Colors from '@/constants/Colors';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useColours } from '@/hooks/useColours';
+import { CalendarClock, Heart, Search, User } from 'lucide-react-native';
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
@@ -14,16 +13,16 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colours = useColours();
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: Colors.primary }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: colours.tabIconSelected }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Explore',
           tabBarLabel: 'Explore',
-          tabBarIcon: ({ color, size }) => <Ionicons name="search" size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Search size={size} color={color} />,
         }}
       />
 
@@ -32,9 +31,7 @@ export default function TabLayout() {
         options={{
           title: 'Upcoming',
           tabBarLabel: 'Upcoming',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="message-outline" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <CalendarClock size={size} color={color} />,
         }}
       />
 
@@ -43,9 +40,7 @@ export default function TabLayout() {
         options={{
           title: 'Wishlist',
           tabBarLabel: 'Wishlist',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart-outline" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Heart size={size} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -54,9 +49,7 @@ export default function TabLayout() {
           // headerShown: false,
           title: 'Profile',
           tabBarLabel: 'Profile',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-circle-outline" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
         }}
       />
     </Tabs>

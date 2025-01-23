@@ -1,6 +1,4 @@
-import { defaultStyles } from '@/constants/Styles';
 // import { useWarmUpBrowser } from "@/hooks/useWarmUpBrowser";
-import { Ionicons } from '@expo/vector-icons';
 import { isLoaded } from 'expo-font';
 import { useRouter } from 'expo-router';
 import React from 'react';
@@ -44,7 +42,7 @@ const Page = () => {
         style={styles.btnOutline}
         onPress={() => loginWithProvider(oauth_providers.apple)}
       >
-        <Ionicons name="logo-apple" size={22} style={defaultStyles.btnIcon} />
+        {/* <Ionicons name="logo-apple" size={22} style={defaultStyles.btnIcon} /> */}
         <Text style={styles.btnOutlineText} onPress={onSignInPress}>
           Continue with Apple
         </Text>
@@ -53,7 +51,7 @@ const Page = () => {
         style={styles.btnOutline}
         onPress={() => loginWithProvider(oauth_providers.google)}
       >
-        <Ionicons name="logo-google" size={22} style={defaultStyles.btnIcon} />
+        {/* <Ionicons name="logo-google" size={22} style={defaultStyles.btnIcon} /> */}
         <Text style={styles.btnOutlineText} onPress={onSignInPress}>
           Continue with Google
         </Text>
@@ -62,7 +60,7 @@ const Page = () => {
         style={styles.btnOutline}
         onPress={() => loginWithProvider(oauth_providers.facebook)}
       >
-        <Ionicons name="logo-facebook" size={22} style={defaultStyles.btnIcon} />
+        {/* <Ionicons name="logo-facebook" size={22} style={defaultStyles.btnIcon} /> */}
         <Text style={styles.btnOutlineText} onPress={onSignInPress}>
           Continue with Facebook
         </Text>
